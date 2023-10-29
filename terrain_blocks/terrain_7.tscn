@@ -1,0 +1,85 @@
+[gd_scene load_steps=12 format=3 uid="uid://b0nm1wnku8y4n"]
+
+[ext_resource type="Texture2D" uid="uid://bub4h65s48wsk" path="res://addons/kenney_prototype_textures/dark/texture_04.png" id="1_ywxig"]
+[ext_resource type="PackedScene" uid="uid://mai6yafcdoxw" path="res://addons/kaykit_city_builder_bits/Assets/gltf/trafficlight_A.gltf" id="2_jvxlo"]
+[ext_resource type="PackedScene" uid="uid://bxaio1aur3xgq" path="res://addons/kaykit_city_builder_bits/Assets/gltf/car_sedan.gltf" id="3_wcdvq"]
+[ext_resource type="PackedScene" uid="uid://c1b8ypuawiu8s" path="res://addons/kaykit_city_builder_bits/Assets/gltf/car_hatchback.gltf" id="4_xq5xg"]
+[ext_resource type="PackedScene" uid="uid://cb2dddowiqj8t" path="res://addons/kaykit_city_builder_bits/Assets/gltf/road_straight.gltf" id="5_m35fq"]
+[ext_resource type="PackedScene" uid="uid://c3t4jj544vfrw" path="res://addons/kaykit_city_builder_bits/Assets/gltf/road_junction.gltf" id="6_sqtn1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e2afj"]
+shading_mode = 2
+metallic = 1.0
+roughness_texture = ExtResource("1_ywxig")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vd85v"]
+material = SubResource("StandardMaterial3D_e2afj")
+size = Vector2(100, 20)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_otswq"]
+data = PackedVector3Array(50, 0, 10, -50, 0, 10, 50, 0, -10, -50, 0, 10, -50, 0, -10, 50, 0, -10)
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_d226f"]
+map_width = 24
+map_depth = 11
+map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_564wm"]
+
+[node name="Terrain_0" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0293999, -8.88995)
+mesh = SubResource("PlaneMesh_vd85v")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_otswq")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(0.0195987, 0.999167, 0.0357996, -9.37706e-10, 0.0358065, -0.999359, -0.999808, 0.0195863, 0.000701759, -12.5111, 4.22468, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(1, -1.86265e-09, -5.82077e-11, 0, 1, -1.54887e-09, 5.82077e-11, -1.42427e-09, 1, 0, 0, 0)
+shape = SubResource("HeightMapShape3D_d226f")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="."]
+transform = Transform3D(0.0195987, 0.999167, 0.0357996, -9.37706e-10, 0.0358065, -0.999359, -0.999808, 0.0195863, 0.000701759, 8.74035, 4.22468, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
+transform = Transform3D(1, -1.86265e-09, -5.82077e-11, 0, 1, -1.54887e-09, 5.82077e-11, -1.42427e-09, 1, 0, 0, 0)
+shape = SubResource("HeightMapShape3D_d226f")
+
+[node name="trafficlight_A" parent="." instance=ExtResource("2_jvxlo")]
+transform = Transform3D(8.4527, 0, 0, 0, 8.76317, 0, 0, 0, 1.94947, 0, 0, 0)
+
+[node name="car_sedan" parent="." instance=ExtResource("3_wcdvq")]
+transform = Transform3D(-3.69744, 0, -3.81612e-07, 0, 7.59439, 0, 3.23241e-07, 0, -4.36513, 0, 0.408623, 4.5597)
+
+[node name="car_hatchback" parent="." instance=ExtResource("4_xq5xg")]
+transform = Transform3D(-1.70007e-07, 0, 5.14696, 0, 7.17878, 0, -3.88931, 0, -2.24981e-07, -8.11223, 0.366149, 0)
+
+[node name="Area3D" type="Area3D" parent="." groups=["Obstacle"]]
+transform = Transform3D(1, 0, 0, 0, 3.02608, 0, 0, 0, 4.09199, 0, 0.872784, 4.68046)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_564wm")
+
+[node name="Area3D2" type="Area3D" parent="." groups=["Obstacle"]]
+transform = Transform3D(-4.37114e-08, 0, -4.09199, 0, 3.02608, 0, 1, 0, -1.78867e-07, -8.20526, 0.872784, 0.0179291)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+shape = SubResource("BoxShape3D_564wm")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 0.33046, 0, 0, 0, 0.24438, 1.1606, 1.65858, -1.98033)
+light_color = Color(1, 0, 0, 1)
+omni_range = 3.02
+
+[node name="road_straight" parent="." instance=ExtResource("5_m35fq")]
+transform = Transform3D(0, 0, 19.5992, 0, 2.61621, 0, -10.9199, 0, 0, 29.3139, 0, 0.00724983)
+
+[node name="road_straight2" parent="." instance=ExtResource("5_m35fq")]
+transform = Transform3D(0, 0, 19.5992, 0, 2.61621, 0, -10.4573, 0, 0, -31.2191, 0, -0.391606)
+
+[node name="road_junction" parent="." instance=ExtResource("6_sqtn1")]
+transform = Transform3D(12.3265, 0, 0, 0, 1.98388, 0, 0, 0, 10.4566, -0.725796, 0, -0.262201)

@@ -1,11 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcy4p3g8mgncg"]
+[gd_scene load_steps=8 format=3 uid="uid://j0hfhy3k2ojt"]
+
+[ext_resource type="PackedScene" uid="uid://bwv78kcq8d3cf" path="res://addons/kaykit_city_builder_bits/Assets/gltf/dumpster.gltf" id="1_kkdr4"]
+[ext_resource type="PackedScene" uid="uid://cy7eirb23tq0o" path="res://addons/kaykit_city_builder_bits/Assets/gltf/car_police.gltf" id="2_a21s6"]
+[ext_resource type="PackedScene" uid="uid://cnrtrripdq1ek" path="res://addons/kaykit_city_builder_bits/Assets/gltf/bench.gltf" id="3_bsrsx"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vd85v"]
 size = Vector2(100, 20)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_riiig"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_l1p25"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_otswq"]
 data = PackedVector3Array(50, 0, 10, -50, 0, 10, 50, 0, -10, -50, 0, 10, -50, 0, -10, 50, 0, -10)
@@ -15,36 +15,11 @@ map_width = 24
 map_depth = 11
 map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_fo667"]
+
 [node name="Terrain_0" type="MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0293999, -8.88995)
 mesh = SubResource("PlaneMesh_vd85v")
-
-[node name="Block_0" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68005, 0.638815, 3.39814)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Block_0"]
-shape = SubResource("BoxShape3D_riiig")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Block_0"]
-mesh = SubResource("BoxMesh_l1p25")
-
-[node name="Block_2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.78942, 0.638815, 6.02502)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Block_2"]
-shape = SubResource("BoxShape3D_riiig")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Block_2"]
-mesh = SubResource("BoxMesh_l1p25")
-
-[node name="Block_1" type="StaticBody3D" parent="."]
-transform = Transform3D(8.43066, 0, 0, 0, 1, 0, 0, 0, 1, 0.663505, 0.638815, 0.519857)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Block_1"]
-shape = SubResource("BoxShape3D_riiig")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Block_1"]
-mesh = SubResource("BoxMesh_l1p25")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -52,15 +27,45 @@ mesh = SubResource("BoxMesh_l1p25")
 shape = SubResource("ConcavePolygonShape3D_otswq")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="."]
-transform = Transform3D(0.0195987, 0.999167, 0.0357996, -9.37706e-10, 0.0358065, -0.999359, -0.999808, 0.0195863, 0.000701759, -5.20824, 4.22468, 0)
+transform = Transform3D(0.0195987, 0.999167, 0.0357996, -9.37706e-10, 0.0358065, -0.999359, -0.999808, 0.0195863, 0.000701759, -12.5111, 4.22468, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
 transform = Transform3D(1, -1.86265e-09, -5.82077e-11, 0, 1, -1.54887e-09, 5.82077e-11, -1.42427e-09, 1, 0, 0, 0)
 shape = SubResource("HeightMapShape3D_d226f")
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="."]
-transform = Transform3D(0.0195987, 0.999167, 0.0357996, -9.37706e-10, 0.0358065, -0.999359, -0.999808, 0.0195863, 0.000701759, 4.82612, 4.22468, 0)
+transform = Transform3D(0.0195987, 0.999167, 0.0357996, -9.37706e-10, 0.0358065, -0.999359, -0.999808, 0.0195863, 0.000701759, 8.74035, 4.22468, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
 transform = Transform3D(1, -1.86265e-09, -5.82077e-11, 0, 1, -1.54887e-09, 5.82077e-11, -1.42427e-09, 1, 0, 0, 0)
 shape = SubResource("HeightMapShape3D_d226f")
+
+[node name="dumpster" parent="." groups=["Obstacle"] instance=ExtResource("1_kkdr4")]
+transform = Transform3D(6.534, 0, 0, 0, 6.22278, 0, 0, 0, 6.336, 0, 0, 4)
+
+[node name="dumpster2" parent="." groups=["Obstacle"] instance=ExtResource("1_kkdr4")]
+transform = Transform3D(6.534, 0, 0, 0, 6.34827, 0, 0, 0, 6.336, -3.88549, 0, 4)
+
+[node name="dumpster3" parent="." groups=["Obstacle"] instance=ExtResource("1_kkdr4")]
+transform = Transform3D(6.534, 0, 0, 0, 6.29811, 0, 0, 0, 6.336, 4.08631, 0, 4)
+
+[node name="dumpster4" parent="." groups=["Obstacle"] instance=ExtResource("1_kkdr4")]
+transform = Transform3D(6.534, 0, 0, 0, 6.28858, 0, 0, 0, 6.336, -8.00872, 0, 4)
+
+[node name="dumpster5" parent="." groups=["Obstacle"] instance=ExtResource("1_kkdr4")]
+transform = Transform3D(6.534, 0, 0, 0, 6.02968, 0, 0, 0, 6.336, 8.02419, 0, 4)
+
+[node name="Area3D" type="Area3D" parent="." groups=["Obstacle"]]
+transform = Transform3D(19.1533, 0, 0, 0, 1.35665, 0, 0, 0, 1, 0, 1.02757, 4.46771)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_fo667")
+
+[node name="car_police" parent="." instance=ExtResource("2_a21s6")]
+transform = Transform3D(3.88538, 0, 5.39025, 0, 6.11248, 0, -3.88538, 0, 5.39025, -16.5283, 0.361442, -1.83385)
+
+[node name="car_police2" parent="." instance=ExtResource("2_a21s6")]
+transform = Transform3D(-3.88538, 0, 5.39025, 0, 6.11248, 0, -3.88538, 0, -5.39025, -16.5283, 0.361442, 6.34734)
+
+[node name="bench" parent="." instance=ExtResource("3_bsrsx")]
+transform = Transform3D(-6.20242e-07, 0, -8.02634, 0, 6.50455, 0, 14.1895, 0, -3.50843e-07, 12.2442, 0, -6.21413)
