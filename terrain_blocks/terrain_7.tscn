@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b0nm1wnku8y4n"]
+[gd_scene load_steps=13 format=3 uid="uid://b0nm1wnku8y4n"]
 
 [ext_resource type="Texture2D" uid="uid://bub4h65s48wsk" path="res://addons/kenney_prototype_textures/dark/texture_04.png" id="1_ywxig"]
 [ext_resource type="PackedScene" uid="uid://mai6yafcdoxw" path="res://addons/kaykit_city_builder_bits/Assets/gltf/trafficlight_A.gltf" id="2_jvxlo"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c1b8ypuawiu8s" path="res://addons/kaykit_city_builder_bits/Assets/gltf/car_hatchback.gltf" id="4_xq5xg"]
 [ext_resource type="PackedScene" uid="uid://cb2dddowiqj8t" path="res://addons/kaykit_city_builder_bits/Assets/gltf/road_straight.gltf" id="5_m35fq"]
 [ext_resource type="PackedScene" uid="uid://c3t4jj544vfrw" path="res://addons/kaykit_city_builder_bits/Assets/gltf/road_junction.gltf" id="6_sqtn1"]
+[ext_resource type="PackedScene" uid="uid://dtd3cenbwlk2o" path="res://assets/vlc.gltf" id="7_ixebm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e2afj"]
 shading_mode = 2
@@ -83,3 +84,6 @@ transform = Transform3D(0, 0, 19.5992, 0, 2.61621, 0, -10.4573, 0, 0, -31.2191, 
 
 [node name="road_junction" parent="." instance=ExtResource("6_sqtn1")]
 transform = Transform3D(12.3265, 0, 0, 0, 1.98388, 0, 0, 0, 10.4566, -0.725796, 0, -0.262201)
+
+[node name="vlc" parent="." instance=ExtResource("7_ixebm")]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 4.59021, 0.200498, 0)
