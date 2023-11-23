@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://b2p7ps80hftrg"]
 
-[ext_resource type="PackedScene" uid="uid://flpch3rsvffy" path="res://assets/player.gltf" id="1_hckir"]
+[ext_resource type="PackedScene" uid="uid://cklpsyhewhsa4" path="res://assets/player_final.gltf" id="2_4e1ux"]
 [ext_resource type="PackedScene" uid="uid://dtot5hew3j6jy" path="res://terrain_controller.tscn" id="2_34xgp"]
 [ext_resource type="Script" path="res://player.gd" id="2_bw3bx"]
 [ext_resource type="AudioStream" uid="uid://4ixi0bboi40n" path="res://gnork-party-improved-171719.mp3" id="4_yyu0e"]
@@ -28,9 +28,9 @@ radius = 7.0
 height = 28.0
 radius = 3.63174
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_66sxl"]
-radius = 0.001
-height = 0.002
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_uxfl2"]
+height = 28.0
+radius = 30.0
 
 [node name="World" type="Node3D"]
 
@@ -45,26 +45,26 @@ shadow_enabled = true
 transform = Transform3D(-0.007, 0, -6.11959e-10, 0, 0.007, 0, 6.11959e-10, 0, -0.007, 0, 0.248835, 0)
 script = ExtResource("2_bw3bx")
 
-[node name="Player" parent="Player" instance=ExtResource("1_hckir")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(3, 0, 4.26326e-14, 0, 3, 0, -4.26326e-14, 0, 3, -7.80233e-07, 324.955, 8.92482)
 shape = SubResource("SphereShape3D_4tusc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(10, 0, 2.27374e-13, 0, 10, 0, -2.27374e-13, 0, 10, -7.31746e-07, 156.48, 8.37019)
+visible = false
 shape = SubResource("CylinderShape3D_sm26c")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(-142.857, 9.99584e-06, -8.64241e-06, 6.05878e-06, 132.583, 53.196, 1.1743e-05, 53.196, -132.583, -2.68418, 575.208, -390.365)
 
+[node name="Player" parent="Player" instance=ExtResource("2_4e1ux")]
+
 [node name="Area3D" type="Area3D" parent="Player"]
 transform = Transform3D(1, 0, 1.42109e-14, 0, 1, 0, -7.10543e-15, 0, 1.18007, 0, 215.119, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 9.54721, 0, 7.10543e-15, 0, 1, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_66sxl")
+transform = Transform3D(1, 0, 0, 0, 9.54721, 0, 2.84217e-14, 0, 1, -1.01506e-12, -6.10352e-05, -7.51984e-20)
+shape = SubResource("CylinderShape3D_uxfl2")
 
 [node name="TerrainController" parent="." instance=ExtResource("2_34xgp")]
 
