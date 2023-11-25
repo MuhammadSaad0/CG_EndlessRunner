@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://b2p7ps80hftrg"]
 
-[ext_resource type="PackedScene" uid="uid://cklpsyhewhsa4" path="res://assets/player_final.gltf" id="2_4e1ux"]
 [ext_resource type="PackedScene" uid="uid://dtot5hew3j6jy" path="res://terrain_controller.tscn" id="2_34xgp"]
 [ext_resource type="Script" path="res://player.gd" id="2_bw3bx"]
+[ext_resource type="PackedScene" uid="uid://ci4578cemyd7k" path="res://do_i_work.tscn" id="2_fmh20"]
 [ext_resource type="AudioStream" uid="uid://4ixi0bboi40n" path="res://gnork-party-improved-171719.mp3" id="4_yyu0e"]
 [ext_resource type="Texture2D" uid="uid://b1ljvr050toyl" path="res://skyline.png" id="5_wwu3d"]
 
@@ -55,15 +55,16 @@ visible = false
 shape = SubResource("CylinderShape3D_sm26c")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(-142.857, 9.99584e-06, -8.64241e-06, 6.05878e-06, 132.583, 53.196, 1.1743e-05, 53.196, -132.583, -2.68418, 575.208, -390.365)
+transform = Transform3D(-142.857, 9.99584e-06, -8.64237e-06, 6.05879e-06, 132.583, 53.1961, 1.1743e-05, 53.1961, -132.583, -2.68418, 575.208, -411.283)
 
-[node name="Player" parent="Player" instance=ExtResource("2_4e1ux")]
+[node name="Player" parent="Player" instance=ExtResource("2_fmh20")]
+transform = Transform3D(75, 0, 0, 0, 75, 0, 0, 0, 75, 0, 25, -20)
 
 [node name="Area3D" type="Area3D" parent="Player"]
 transform = Transform3D(1, 0, 1.42109e-14, 0, 1, 0, -7.10543e-15, 0, 1.18007, 0, 215.119, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 9.54721, 0, 2.84217e-14, 0, 1, -1.01506e-12, -6.10352e-05, -7.51984e-20)
+transform = Transform3D(1, 0, -2.84217e-14, 0, 9.54721, 0, 2.84217e-14, 0, 1, -1.01506e-12, -6.10352e-05, -7.51984e-20)
 shape = SubResource("CylinderShape3D_uxfl2")
 
 [node name="TerrainController" parent="." instance=ExtResource("2_34xgp")]

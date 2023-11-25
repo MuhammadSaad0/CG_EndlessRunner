@@ -30,6 +30,8 @@ func _ready():
 	area3D.connect('area_entered', self.on_collision)
 	area3D.connect('body_entered', self.on_collision2)
 	camPos = get_node("Camera3D").transform.origin
+	$Player/AnimationPlayer.play("run")
+
 	
 func on_collision(body):
 	if body.is_in_group("Coins"):
@@ -60,6 +62,8 @@ func on_collision2(body):
 
 func _physics_process(delta):
 
+	$Player/AnimationPlayer.play("run")
+	
 	if not is_on_floor():
 		velocity.y -= gravity * delta * 1.7
 
